@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Foundation\Application;
@@ -15,9 +16,11 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [IndexController::class, 'index'])->name('home.index');
 //Guest Route
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+
+Route::get('/index', [IndexController::class, 'index'])->name('index');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
